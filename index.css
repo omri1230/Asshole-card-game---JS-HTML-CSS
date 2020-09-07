@@ -1,0 +1,15 @@
+.flex-container {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-container>div {
+    background-color: #fcfbfb;
+    border: solid 2px;
+    width: 90%;
+    height: 700px;
+    margin: 10px;
+    text-align: center;
+}
