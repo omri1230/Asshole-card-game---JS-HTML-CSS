@@ -1,6 +1,6 @@
 body {
-    background: rgb(63, 94, 251);
-    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(21, 255, 66, 1) 100%);
+    background-image:url(images/cool-background.png);
+    background-size:cover;
 }
 
 .flex-container {
@@ -11,11 +11,24 @@ body {
 }
 
 .flex-container>div {
+    display: flex;
     background-color: #2db02d;
-    border: solid 2px;
+    border: solid 1px;
     border-radius: 50px;
     width: 90%;
     height: 700px;
     margin: 10px;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    
+}
+
+
+#btn-start {
+    border-radius: 20px;
+    height: 50px;
+    width:100px;
+    background-color: whitesmoke;
+
 }
