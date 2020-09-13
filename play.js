@@ -22,6 +22,34 @@ function divideCardsToplayers(deck,player1,player2,player3,player4) {
 
 start.addEventListener('click', () => {
     start.style.display = "none"
+
+    //create div the warpper the input names of players 
+    const names = document.createElement("div")
+    names.className = "div-of-players-names"
+    document.querySelector('.warpper-start-btn').appendChild(names);
+    names.style.display = "flex";
+    names.style.flexDirection = "column";
+    names.style.rowGap = "20px"
+
+    //orderd the input names 
+    const arrnames = ["player1", "player2", "player3", "player4"];
+    arrnames.forEach(player => {
+        const man = document.createElement("input")
+        man.className = player
+        man.placeholder = "  Name player " + String(arrnames.indexOf(player) + 1)
+        man.style.borderRadius = "20px"
+        document.querySelector('.div-of-players-names').appendChild(man);
+    })
+
+
+    const toGame = document.createElement("button");
+    toGame.style.marginTop = "50px"
+    toGame.style.borderRadius = "10px"
+    toGame.style.height = "45px"
+    toGame.innerHTML = "Play"
+    document.querySelector('.div-of-players-names').appendChild(toGame);
+
+
     numbers.forEach(value => {
         suits.forEach(suit => {
                 switch (value) {
@@ -46,16 +74,24 @@ start.addEventListener('click', () => {
     
     for (let i = 0; i <(Math.random()*15) + 7; i++){
         shuffle(allCards)
-    }
+    }  
 
-    const omri = new Player("Omri");
-    const maayan = new Player("maayan");
-    const logas = new Player("Logas");
-    const rina = new Player("Rina");
-
-    divideCardsToplayers(allCards, omri, maayan, logas, rina)
-    console.log(omri)
+    
+    toGame.addEventListener('click', () => {
+        names.style.display = "none"
+        let i = 0;
+        const players = []
+        arrnames.forEach(name => {
+            players.push(new Player(document.querySelector('.' + String(name)).value));
+        })
+        divideCardsToplayers(allCards, players[0], players[1], players[2], players[3]);
+        players.forEach(player => {
+            player.mergesort()
+        })
+        console.log(players[0])
+    })
 })
+
 
 
 
